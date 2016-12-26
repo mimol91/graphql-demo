@@ -1,2 +1,3 @@
 imports:
     - { resource: services/graphQL.yml }
+    - { resource: services/repo.yml }

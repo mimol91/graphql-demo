@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  graph_php:
+    image: jakubsacha/symfony-docker:php7-dev
+    volumes:
+      - '../:/var/www/html'
+    ports:
+      - '80:80'
+
+  graph_mysql:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+    ports:
+      - '3306:3306'
