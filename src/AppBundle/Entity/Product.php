@@ -73,6 +73,11 @@ class Product
         $this->similarProduts= new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
     /**
      * @return int
@@ -213,7 +218,6 @@ class Product
     public function addSimilarProduct(Product $similarProduct)
     {
         $this->similarProducts[] = $similarProduct;
-        $similarProduct->addSimilarProduct($this);
 
         return $this;
     }
@@ -225,7 +229,6 @@ class Product
     public function removeSimilarProduct(Product $similarProduct)
     {
         $this->similarProducts->removeElement($similarProduct);
-        $similarProduct->removeSimilarProduct($this);
 
         return $this;
     }

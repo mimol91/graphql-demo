@@ -10,6 +10,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Promo</th>
+                <th>Products</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ category.name }}</td>
                 <td>{{ category.description }}</td>
                 <td>{% if category.promo %}Yes{% else %}No{% endif %}</td>
+                <td>{{ category.products | join(' | ') }}</td>
                 <td>
                     <ul>
                         <li>
