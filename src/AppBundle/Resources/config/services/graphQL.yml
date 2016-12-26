@@ -1,0 +1,5 @@
+services:
+    app.graphql.resolver.character:
+        class: AppBundle\GraphQL\Resolver\FooResolver
+        tags:
+            - { name: overblog_graphql.resolver, alias: "foo", method: "resolveFoo" }
