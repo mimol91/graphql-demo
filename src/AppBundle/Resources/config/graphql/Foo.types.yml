@@ -1,0 +1,8 @@
+Foo:
+    type: object
+    config:
+        description: "Foo example"
+        fields:
+            foo:
+                type: "String"
+                resolve: "@=resolver('foo', [args])"

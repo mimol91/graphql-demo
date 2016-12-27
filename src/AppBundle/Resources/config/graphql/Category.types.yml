@@ -1,0 +1,17 @@
+Category:
+    type: object
+    config:
+        description: "Category object"
+        fields:
+            id:
+                type: "ID!"
+                description: "ID of category."
+            name:
+                type: "String!"
+                description: "Category name."
+            description:
+                type: "String!"
+                description: "Category description."
+            promo:
+                type: "Boolean!"
+                description: "Determine if category is of `promo` type."

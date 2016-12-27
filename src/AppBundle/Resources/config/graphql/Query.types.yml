@@ -1,8 +1,28 @@
 Query:
     type: object
     config:
-        description: "Foo example"
+        description: "Root of graphql"
         fields:
-            foo:
-                type: "String"
-                resolve: "@=resolver('foo', [args])"
+            categories:
+                type: "[Category]"
+                resolve: "@=resolver('categories')"
+
+            category:
+                type: "Category"
+                args:
+                    id:
+                        description: "ID of category"
+                        type: "ID!"
+                resolve: "@=resolver('category', [args])"
+
+            products:
+                type: "[Product]"
+                resolve: "@=resolver('products')"
+
+            category:
+                type: "Product"
+                args:
+                    id:
+                        description: "ID of product"
+                        type: "ID!"
+                resolve: "@=resolver('product', [args])"

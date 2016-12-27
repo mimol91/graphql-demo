@@ -3,3 +3,18 @@ services:
         class: AppBundle\GraphQL\Resolver\FooResolver
         tags:
             - { name: overblog_graphql.resolver, alias: "foo", method: "resolveFoo" }
+
+    app.graphql.resolver.category:
+        class: AppBundle\GraphQL\Resolver\CategoryResolver
+        arguments: ['@app.category_repository', '@serializer']
+        tags:
+            - { name: overblog_graphql.resolver, alias: "category", method: "resolveCategory" }
+            - { name: overblog_graphql.resolver, alias: "categories", method: "resolveCategories" }
+
+    app.graphql.resolver.product:
+        class: AppBundle\GraphQL\Resolver\ProductResolver
+        arguments: ['@app.product_repository', '@serializer']
+        tags:
+            - { name: overblog_graphql.resolver, alias: "product", method: "resolveProduct" }
+            - { name: overblog_graphql.resolver, alias: "products", method: "resolveProducts" }
+

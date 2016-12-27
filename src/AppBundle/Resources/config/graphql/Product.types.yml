@@ -1,0 +1,20 @@
+Product:
+    type: object
+    config:
+        description: "Product object"
+        fields:
+            id:
+                type: "ID!"
+                description: "ID of product."
+            name:
+                type: "String!"
+                description: "Product name."
+            description:
+                type: "String!"
+                description: "Product description."
+            promo:
+                type: "Boolean!"
+                description: "Determine if product is of `promo` type."
+            price:
+                type: "Int!"
+                description: "Product price"
