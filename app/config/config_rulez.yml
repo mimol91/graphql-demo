@@ -1,0 +1,11 @@
+kphoen_rulerz:
+    cache: %kernel.cache_dir%/rulerz
+    debug: %kernel.debug%
+
+    executors:
+        doctrine: true
+        doctrine_dbal: true
+        eloquent: false
+        pomm: false
+        elastica: false
+        elasticsearch: false

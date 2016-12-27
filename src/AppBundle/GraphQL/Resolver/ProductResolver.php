@@ -4,23 +4,25 @@ namespace AppBundle\GraphQL\Resolver;
 
 use AppBundle\Entity\Product;
 use AppBundle\Repository\ProductRepository;
+use AppBundle\Spec\Product\PriceGreaterThan;
+use AppBundle\Spec\Product\PriceLessThan;
+use AppBundle\Spec\SpecBuilder;
 use JMS\Serializer\Serializer;
 use Overblog\GraphQLBundle\Definition\Argument;
+use RulerZ\RulerZ;
+use RulerZ\Spec\AndX;
 
-class ProductResolver
+class ProductResolver extends AbstractResolver
 {
     /** @var ProductRepository */
     private $productRepository;
 
-    /** @var Serializer */
-    private $serializer;
-
-    public function __construct(ProductRepository $productRepository, Serializer $serializer)
+    public function __construct(Serializer $serializer, RulerZ $rulerZ, ProductRepository $productRepository)
     {
-        $this->productRepository = $productRepository;
-        $this->serializer = $serializer;
-    }
+        parent::__construct($serializer, $rulerZ);
 
+        $this->productRepository = $productRepository;
+    }
 
     public function resolveProduct(Argument $args)
     {
@@ -32,10 +34,18 @@ class ProductResolver
         return $this->serializer->toArray($product);
     }
 
-    public function resolveProducts()
+    public function resolveProducts(Argument $args)
     {
-        $products = $this->productRepository->findAll();
-        
-        return $this->serializer->toArray($products);
+        $specificationBuilder = new SpecBuilder($args);
+        $specificationBuilder
+            ->add(PriceLessThan::class, 'priceLessThan')
+            ->add(PriceGreaterThan::class, 'priceGreaterThan');
+
+        $products = $this->rulerZ->filterSpec(
+            $this->productRepository->createQueryBuilder('p'),
+            new AndX($specificationBuilder->build())
+        );
+
+        return $this->serializer->toArray(iterator_to_array($products));
     }
 }

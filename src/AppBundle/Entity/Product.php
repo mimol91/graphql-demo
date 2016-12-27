@@ -140,8 +140,6 @@ class Product
     }
 
     /**
-     * Get price
-     *
      * @return int
      */
     public function getPrice()

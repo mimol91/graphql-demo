@@ -6,19 +6,18 @@ use AppBundle\Entity\Category;
 use AppBundle\Repository\CategoryRepository;
 use JMS\Serializer\Serializer;
 use Overblog\GraphQLBundle\Definition\Argument;
+use RulerZ\RulerZ;
 
-class CategoryResolver
+class CategoryResolver extends AbstractResolver
 {
     /** @var CategoryRepository */
     private $categoryRepository;
 
-    /** @var Serializer */
-    private $serializer;
-
-    public function __construct(CategoryRepository $categoryRepository, Serializer $serializer)
+    public function __construct(Serializer $serializer, RulerZ $rulerZ, CategoryRepository $categoryRepository)
     {
+        parent::__construct($serializer, $rulerZ);
+
         $this->categoryRepository = $categoryRepository;
-        $this->serializer = $serializer;
     }
 
 

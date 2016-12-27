@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Overblog\GraphQLBundle\OverblogGraphQLBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new KPhoen\RulerZBundle\KPhoenRulerZBundle(),
             new AppBundle\AppBundle(),
         ];
 

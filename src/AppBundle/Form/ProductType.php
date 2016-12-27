@@ -39,6 +39,4 @@ class ProductType extends AbstractType
     {
         return 'appbundle_product';
     }
-
-
 }

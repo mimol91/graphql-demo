@@ -37,6 +37,4 @@ class CategoryType extends AbstractType
     {
         return 'appbundle_category';
     }
-
-
 }

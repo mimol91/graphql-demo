@@ -15,3 +15,6 @@ Category:
             promo:
                 type: "Boolean!"
                 description: "Determine if category is of `promo` type."
+            products:
+                type: "[Product]"
+                description: "Products in this category."

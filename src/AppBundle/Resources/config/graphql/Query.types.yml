@@ -1,28 +1,35 @@
 Query:
     type: object
     config:
-        description: "Root of graphql"
+        description: "Root of graphql."
         fields:
             categories:
                 type: "[Category]"
-                resolve: "@=resolver('categories')"
+                resolve: "@=resolver('categories', [args])"
 
             category:
                 type: "Category"
                 args:
                     id:
-                        description: "ID of category"
+                        description: "ID of category."
                         type: "ID!"
                 resolve: "@=resolver('category', [args])"
 
             products:
                 type: "[Product]"
-                resolve: "@=resolver('products')"
+                args:
+                    priceLessThan:
+                        description: "Maximum product price."
+                        type: "Int"
+                    priceGreaterThan:
+                        description: "Minimum product price."
+                        type: "Int"
+                resolve: "@=resolver('products', [args])"
 
-            category:
+            product:
                 type: "Product"
                 args:
                     id:
-                        description: "ID of product"
+                        description: "ID of product."
                         type: "ID!"
                 resolve: "@=resolver('product', [args])"

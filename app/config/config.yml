@@ -2,7 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: graph_config.yml }
+    - { resource: config_graph.yml }
+    - { resource: config_rulez.yml }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed

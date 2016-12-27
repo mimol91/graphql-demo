@@ -17,4 +17,12 @@ Product:
                 description: "Determine if product is of `promo` type."
             price:
                 type: "Int!"
-                description: "Product price"
+                description: "Product price."
+                args:
+                    unit:
+                        description: Price unit"
+                        type: 'String'
+
+            categories:
+                type: "[Category]"
+                description: "List of categories where product belongs."
