@@ -25,3 +25,9 @@ services:
             - { name: overblog_graphql.resolver, alias: "product", method: "resolveProduct" }
             - { name: overblog_graphql.resolver, alias: "products", method: "resolveProducts" }
 
+
+    app.graphql.mutation.category:
+        class: AppBundle\GraphQL\Mutation\CategoryMutation
+        arguments: ['@doctrine.orm.entity_manager', '@app.category_repository', '@serializer']
+        tags:
+            - { name: "overblog_graphql.mutation", alias: "category_mutation", method: "mutate" }

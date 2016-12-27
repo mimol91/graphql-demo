@@ -1,0 +1,28 @@
+categoryMutationInput:
+    type: relay-mutation-input
+    config:
+        fields:
+            id:
+                type: "ID!"
+                description: "ID of category."
+            name:
+                type: "String!"
+                description: "Category name."
+
+categoryMutationPayload:
+    type: relay-mutation-payload
+    config:
+        description: "Category mutation"
+        fields:
+            name:
+                type: "String"
+                description: "Category name."
+            description:
+                type: "String"
+                description: "Category description."
+            promo:
+                type: "Boolean"
+                description: "Determine if category is of `promo` type."
+            products:
+                type: "[Product]"
+                description: "Products in this category."

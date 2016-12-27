@@ -1,0 +1,12 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            updateCategory:
+#                access: "@=hasRole('ROLE_ADMIN')"
+                builder: Mutation
+                builderConfig:
+                    inputType: categoryMutationInput
+                    payloadType: categoryMutationPayload
+                    mutateAndGetPayload: "@=mutation('category_mutation', [value])"
+

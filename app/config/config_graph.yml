@@ -7,5 +7,5 @@ overblog_graphql:
 #            mutation: ~
         schema:
             query: Query
-            mutation: ~
+            mutation: Mutation
 #
